@@ -6,7 +6,7 @@ This is the collection of tasks I run to harden my Debian hosts. It does a coupl
 * installs ufw, a firewall (default is to install but leave it disabled)
 * installs apparmor profiles
 * turns on unattended upgrades, optionally allowing the system to reboot
-* optionally: manages an sshd configuration to:
+* manages an sshd configuration to:
   * use a specific port (default 22, but see Role Variables)
   * disable password authentication
   * only permit sudo and user groups to log in via ssh
@@ -40,8 +40,7 @@ A description of the settable variables for this role should go here, including 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
+```
     - hosts: servers
       roles:
          - role: rtertiaer.ansible_harden
@@ -49,6 +48,7 @@ Including an example of how to use your role (for instance, with variables passe
               harden_sshd_port: 2222
               harden_allow_unattended_update_reboots: true
               harden_ufw_enabled: enabled
+```
 
 License
 -------
