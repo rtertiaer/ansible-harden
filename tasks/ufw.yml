@@ -1,0 +1,24 @@
+---
+- name: install ufw
+  apt:
+    name: ufw
+    state: latest
+
+- name: enable ufw
+  community.general.ufw:
+    state: "{{ harden_ufw_enabled }}"
+    policy: deny
+    logging: "{{ harden_ufw_logging_enabled }}"
+
+- name: allow ssh
+  community.general.ufw:
+    comment: Allow SSH inbound
+    rule: allow
+    port: "{{ harden_sshd_port }}"
+    proto: tcp
+
+- name: limit ssh
+  community.general.ufw:
+    comment: Rate limit SSH connections
+    rule: limit
+    port: "{{ harden_sshd_port }}"

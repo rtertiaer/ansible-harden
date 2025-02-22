@@ -1,0 +1,15 @@
+---
+- name: install apparmor & profiles
+  apt:
+    name:
+      - apparmor
+      - apparmor-utils
+      - apparmor-profiles
+      - apparmor-profiles-extra
+    state: latest
+
+- name: cache apparmor profiles for faster boot times
+  lineinfile:
+    path: /etc/apparmor/parser.conf
+    regexp: '^write-cache'
+    line: 'write-cache'

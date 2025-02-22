@@ -1,0 +1,6 @@
+---
+# defaults file for ansible-harden
+harden_sshd_port: 22
+harden_allow_unattended_update_reboots: true
+harden_ufw_enabled: disabled
+harden_ufw_logging_enabled: "on"

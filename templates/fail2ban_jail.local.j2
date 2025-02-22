@@ -1,0 +1,11 @@
+[DEFAULT]
+destemail = root@localhost
+sendername = fail2ban
+
+[sshd]
+enabled = true
+port = {{ harden_sshd_port }}
+
+[sshd-ddos]
+enabled = true
+port = {{ harden_sshd_port }}

@@ -1,0 +1,21 @@
+---
+- name: ensure sshd_config.d exists
+  file:
+    name: /etc/ssh/sshd_config.d
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: harden sshd config
+  template:
+    src: sshd_conf.j2
+    dest: /etc/ssh/sshd_config.d/harden.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify:
+    - restart sshd
+
+# The UFW rules to allow SSH inbound are located in the UFW task, such
+# that they run directly after installing & activating UFW.

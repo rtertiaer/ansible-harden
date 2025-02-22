@@ -1,0 +1,6 @@
+---
+skip_list:
+  - fqcn
+  - name
+  - package-latest
+  - yaml[new-line-at-end-of-file]
